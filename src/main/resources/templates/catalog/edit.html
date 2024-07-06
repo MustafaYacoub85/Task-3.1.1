@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update User</title>
+</head>
+<body>
+
+<h1>Update User</h1>
+
+<form method="post" data-th-action="@{/catalog/{userId}/edit(userId=${user.id})}">
+    <input type="hidden" th:field="*{user.id}" />
+    <label>Name: <input type="text" name="firstName" data-th-text="${user.firstName}"/></label><br/>
+    <label>Surname: <input type="text" name="lastName" data-th-text="${user.lastName}"/></label><br/>
+    <label>Age: <input type="number" name="age" data-th-text="${user.age}"/></label><br/>
+    <label>E-mail: <input type="text" name="email" data-th-text="${user.email}"/></label><br/>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>
+
+<!--<form method="post" data-th-action="@{/catalog/creat}">-->

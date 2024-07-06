@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>[[${user.firstName}}]]</title>
+</head>
+<body>
+
+<h1>data-th-href="${user.firstName}"</h1>
+<ul>
+    <li><strong>ID</strong>:<span data-th-text="${user.id}"></span>
+    <li><strong>Name</strong>:<span data-th-text="${user.firstName}"></span>
+    <li><strong>Username</strong>:<span data-th-text="${user.lastName}"></span>
+    <li><strong>Age</strong>:<span data-th-text="${user.age}"></span>
+    <li><strong>Email</strong>:<span data-th-text="${user.email}"></span>
+    <button type="submit">Update</button>
+</ul>
+
+<!--<form method="post" data-th-action="@{/catalog/creat}">-->
+
+<!--    <label>Name: <input type="text" name="firstName"/></label><br/>-->
+<!--    <label>Surname: <input type="text" name="lastName"/></label><br/>-->
+<!--    <label>Age: <input type="number" name="age"/></label><br/>-->
+<!--    <label>E-mail: <input type="text" name="email"/></label><br/>-->
+<!--    <button type="submit">Create</button>-->
+<!--</form>-->
+</body>
+</html>
