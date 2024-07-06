@@ -53,7 +53,7 @@
         <td th:text="${user.age}"></td>
         <td th:text="${user.email}"></td>
         <td>
-            <a th:href="@{'/catalog/edit/' + ${user.id}}">Edit</a> |
+            <a th:href="@{'/edit/'+ ${user.id}}">Edit</a> |
             <a th:href="@{'/delete/' + ${user.id}}">Delete</a>
         </td>
     </tr>

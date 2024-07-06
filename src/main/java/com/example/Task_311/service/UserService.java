@@ -10,10 +10,9 @@ public interface UserService {
     Iterable<User> getAllUser();
     User creatUser(int age, String email, String firstName, String lastName);
     Optional<User> findUser(Integer userId);
-
     void updateUser(Integer id, int age, String firstName, String lastName, String email);
-
     void deleteUser(Integer id);
+    public User updateUser(User user);
 
 
 

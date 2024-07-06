@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User creatUser(int age, String email, String firstName, String lastName) {
-         return this.userDao.save(new User(null,age,email,firstName,lastName));
+        return this.userDao.save(new User(null, age, email, firstName, lastName));
     }
 
     @Override
@@ -33,12 +33,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(Integer id, int age, String firstName, String lastName, String email) {
-        this.userDao.findById(id).ifPresentOrElse(user ->{
+        this.userDao.findById(id).ifPresentOrElse(user -> {
             user.setAge(age);
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setEmail(email);
-        }, ()->{throw new NoSuchElementException();
+        }, () -> {
+            throw new NoSuchElementException();
         });
     }
 
@@ -46,9 +47,23 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Integer id) {
         this.userDao.deleteById(id);
     }
-
-
+    @Override
+    public User updateUser(User user) {
+        Optional<User> optionalUpdatingUser = userDao.findById(user.getId());
+        if (optionalUpdatingUser.isPresent()) {
+            User updatingUser = optionalUpdatingUser.get();
+            updatingUser.setAge(user.getAge());
+            updatingUser.setFirstName(user.getFirstName());
+            updatingUser.setLastName(user.getLastName());
+            updatingUser.setEmail(user.getEmail());
+            return userDao.save(updatingUser);
+        } else {
+            throw new NullPointerException("User is null");
+        }
+    }
 }
+
+
 
 
 
